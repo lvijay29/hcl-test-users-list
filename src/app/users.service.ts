@@ -7,8 +7,10 @@ import { Observable } from 'rxjs';
 export class UsersService {
 
   constructor(private http: HttpClient) { }
-  public getUserList(request: any, header): Observable<any> {
-    const url = this.getUrl('https://jsonplaceholder.typicode.com/users');
+  public getUserList(header): Observable<any> {
+    const url = 'https://jsonplaceholder.typicode.com/users';
     return this.http.get<any>(url, header);
   }
+
+  
 }

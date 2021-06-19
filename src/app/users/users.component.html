@@ -2,12 +2,12 @@
   <div class="control-panel">
     <form>
       <label class="select">Select column to filter:
-        <select>
+        <select (change)="changeOption($event.target.value)">
           <option *ngFor="let opt of options" [value]="opt.value">{{ opt.text }}</option>
         </select>
       </label>
       <label class="input">Enter filter keywords:
-        <input type="text" placeholder="filter keywords go here..." />
+        <input type="text" placeholder="filter keywords go here..." (input)="filters($event.target.value)" />
       </label>
     </form>
   </div>
@@ -22,13 +22,13 @@
           <th>Website</th>
         </tr>
       </thead>
-      <tbody>
+      <tbody *ngFor="let item of usersList;let i = index">
         <tr>
-          <td>John Doe</td>
-          <td>jdoe</td>
-          <td>john.doe@jd.com</td>
-          <td>024-648-3804</td>
-          <td>jd.com</td>
+          <td>{{item.name}}</td>
+          <td>{{item.username}}</td>
+          <td>{{item.email}}</td>
+          <td>{{item.phone}}</td>
+          <td>{{item.website}}</td>
         </tr>
       </tbody>
     </table>
